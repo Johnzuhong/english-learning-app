@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英语二学习进阶应用系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>英语二学习进阶应用系统</h1>
+            <div class="header-actions">
+                <button id="exportBtn" class="action-btn">导出数据</button>
+                <button id="importBtn" class="action-btn">导入数据</button>
+                <input type="file" id="importFile" accept=".json" style="display: none;">
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-items">
+            <button id="vocabBtn" class="nav-btn active">单词</button>
+            <button id="grammarBtn" class="nav-btn">语法</button>
+            <button id="clozeBtn" class="nav-btn">完形填空</button>
+            <button id="readingBtn" class="nav-btn">阅读理解</button>
+            <button id="writingBtn" class="nav-btn">写作</button>
+            <button id="examBtn" class="nav-btn">真题库</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 单词模块 -->
+        <section id="vocabSection" class="module-section active">
+            <div class="section-header">
+                <h2>单词学习</h2>
+                <p class="section-desc">每次随机显示30个不认识与不熟悉的单词，点击标记熟悉或认识</p>
+            </div>
+            <div id="vocabContainer" class="content-container"></div>
+            <div class="section-footer">
+                <button id="refreshVocab" class="refresh-btn">刷新单词</button>
+            </div>
+        </section>
+
+        <!-- 语法模块 -->
+        <section id="grammarSection" class="module-section">
+            <div class="section-header">
+                <h2>语法学习</h2>
+                <p class="section-desc">选择题形式，测试语法知识</p>
+            </div>
+            <div id="grammarContainer" class="content-container"></div>
+            <div class="section-footer">
+                <button id="submitGrammar" class="submit-btn">提交答案</button>
+                <button id="refreshGrammar" class="refresh-btn">下一题</button>
+            </div>
+        </section>
+
+        <!-- 完形填空模块 -->
+        <section id="clozeSection" class="module-section">
+            <div class="section-header">
+                <h2>完形填空</h2>
+                <p class="section-desc">从真题中随机抽取完形填空练习</p>
+            </div>
+            <div id="clozeContainer" class="content-container"></div>
+            <div class="section-footer">
+                <button id="submitCloze" class="submit-btn">提交答案</button>
+                <button id="refreshCloze" class="refresh-btn">刷新题目</button>
+            </div>
+        </section>
+
+        <!-- 阅读理解模块 -->
+        <section id="readingSection" class="module-section">
+            <div class="section-header">
+                <h2>阅读理解</h2>
+                <p class="section-desc">从真题中随机抽取阅读理解练习</p>
+            </div>
+            <div id="readingContainer" class="content-container"></div>
+            <div class="section-footer">
+                <button id="submitReading" class="submit-btn">提交答案</button>
+                <button id="refreshReading" class="refresh-btn">刷新文章</button>
+            </div>
+        </section>
+
+        <!-- 写作模块 -->
+        <section id="writingSection" class="module-section">
+            <div class="section-header">
+                <h2>写作练习</h2>
+                <p class="section-desc">从真题中随机抽取写作题目，系统自动评分</p>
+            </div>
+            <div id="writingContainer" class="content-container"></div>
+            <div class="section-footer">
+                <button id="submitWriting" class="submit-btn">提交作文</button>
+                <button id="refreshWriting" class="refresh-btn">换一个题目</button>
+            </div>
+        </section>
+
+        <!-- 真题库模块 -->
+        <section id="examSection" class="module-section">
+            <div class="section-header">
+                <h2>真题库</h2>
+                <p class="section-desc">近十年英语二真题试卷，可生成模拟考试</p>
+            </div>
+            <div id="examContainer" class="content-container"></div>
+            <div class="section-footer">
+                <button id="startExam" class="submit-btn">开始模拟考试</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- 结果弹窗 -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">测试结果</h3>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- 导入导出弹窗 -->
+    <div id="dataModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="dataModalTitle">数据操作</h3>
+            <div id="dataModalBody"></div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="storage.js"></script>
+    <script src="vocabulary.js"></script>
+    <script src="grammar.js"></script>
+    <script src="cloze.js"></script>
+    <script src="reading.js"></script>
+    <script src="writing.js"></script>
+    <script src="exam.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
