@@ -703,6 +703,514 @@ main {
     margin-top: 5px;
 }
 
+/* 单词学习新样式 */
+.vocab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.unit-badge {
+    padding: 5px 15px;
+    background: #667eea;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.settings-btn, .schedule-btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.settings-btn {
+    background: #f0f0f0;
+    color: #666;
+}
+
+.settings-btn:hover {
+    background: #e0e0e0;
+}
+
+.schedule-btn {
+    background: #ffc107;
+    color: #333;
+}
+
+.schedule-btn:hover {
+    background: #e6ae00;
+}
+
+.word-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.word-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.word-list-item:hover {
+    background: #e8efff;
+    transform: translateX(5px);
+}
+
+.word-info {
+    flex: 1;
+}
+
+.word-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.meaning-text {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.word-arrow {
+    font-size: 1.5rem;
+    color: #999;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.word-arrow:hover {
+    color: #667eea;
+}
+
+/* 模态框通用样式 */
+.word-detail-modal, .settings-modal, .schedule-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+    display: none;
+}
+
+.word-detail-modal.active, .settings-modal.active, .schedule-modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content-detail, .modal-content-settings, .modal-content-schedule {
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 25px;
+    z-index: 1002;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: #f0f0f0;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-btn:hover {
+    background: #e0e0e0;
+}
+
+.detail-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.detail-word {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.detail-phonetic {
+    color: #666;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.detail-meaning {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.detail-collocations {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.detail-collocations h4 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.collocation-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.collocation-row:last-child {
+    border-bottom: none;
+}
+
+.collocation-hidden {
+    color: #999;
+    font-style: italic;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn-unknown, .action-btn-familiar, .action-btn-known {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.action-btn-unknown {
+    background: #dc3545;
+    color: white;
+}
+
+.action-btn-familiar {
+    background: #ffc107;
+    color: #333;
+}
+
+.action-btn-known {
+    background: #28a745;
+    color: white;
+}
+
+/* 语音答题样式 */
+.meaning-hidden {
+    background: #f8f9fa;
+    border: 2px dashed #667eea;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #667eea;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.speech-section {
+    background: #e8f5e9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.speech-btn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 15px;
+}
+
+.speech-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+
+.speech-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+#speechResult {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#speechAnalysis {
+    font-size: 1.1rem;
+}
+
+.manual-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+.manual-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.manual-submit-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.manual-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* 设置面板样式 */
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.settings-header h3 {
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.settings-section {
+    margin-bottom: 25px;
+}
+
+.settings-section h4 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.radio-group label:hover {
+    background: #e8efff;
+}
+
+.radio-group input[type="radio"] {
+    accent-color: #667eea;
+}
+
+.settings-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.reset-btn {
+    padding: 12px;
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    color: #856404;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.reset-btn:hover {
+    background: #ffeeba;
+}
+
+.save-btn {
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* 进度表样式 */
+.schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.schedule-header h3 {
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.schedule-progress {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.progress-info span {
+    font-weight: 500;
+    color: #333;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 5px;
+    transition: width 0.5s;
+}
+
+.progress-stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-stats span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.schedule-table-container {
+    overflow-x: auto;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 12px 8px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    font-size: 0.85rem;
+}
+
+.schedule-table th {
+    background: #f0f0f0;
+    font-weight: 600;
+    color: #333;
+}
+
+.schedule-table th:first-child, .schedule-table td:first-child {
+    background: #fff3cd;
+    color: #856404;
+    font-weight: 600;
+}
+
+.active-cell {
+    background: #fff3cd;
+    color: #856404;
+    font-weight: 500;
+}
+
+.current-cell {
+    background: #ffeeba !important;
+    box-shadow: inset 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     header h1 {
